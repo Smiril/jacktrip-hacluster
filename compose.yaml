@@ -17,8 +17,8 @@ services:
             - "4464:4464/tcp"
             - "7881:7881/tcp"
             - "22124:22124/udp"
-            - "50000-51000:50000-51000/udp"
-            - "61000-62000:61000-62000/udp"
+            - "50000-52000:50000-52000/udp"
+            - "61000-63000:61000-63000/udp"
         environment:
             - JACKTRIP_HA_HOST=REPLACE_WITH_HAPROXY_FQDN
             - JACKTRIP_HA_IP=REPLACE_WITH_HAPROXY_IP
