@@ -18,6 +18,8 @@ services:
             - "22124:22124/udp"
             - "50000-51000:50000-51000/udp"
             - "61000-62000:61000-62000/udp"
+        environment:
+            - JACKTRIP_HA_HOST=REPLACE_WITH_FQDN
         volumes:
             - ./ha-proxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
             - ./haproxy_certs/certs.pem:/haproxy/certs.pem:ro
