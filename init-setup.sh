@@ -22,9 +22,10 @@ if [ -d "$data_path" ]; then
 fi
 
 
-if [ ! -e "./ha-proxy.cfg" ] || [ ! -e "$data_path/certs.sh" ]; then
+if [ ! -e "./compose.yaml" ] || [ ! -e "./ha-proxy.cfg" ] || [ ! -e "$data_path/certs.sh" ]; then
   echo "### Downloading recommended TLS parameters ..."
   mkdir -p $data_path
+  curl -s https://raw.githubusercontent.com/Smiril/jacktrip-hacluster/blob/main/compose.yaml > "./compose.yaml"
   curl -s https://raw.githubusercontent.com/Smiril/jacktrip-hacluster/blob/main/ha-proxy.cfg > "./ha-proxy.cfg"
   curl -s https://raw.githubusercontent.com/Smiril/jacktrip-hacluster/blob/main/haproxy_certs/certs.sh > "$data_path/certs.sh"
   echo
