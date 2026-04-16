@@ -5,7 +5,7 @@ if ! [ -x "$(command -v docker-compose)" ]; then
   exit 1
 fi
 
-domains=(sub.example.org)
+domains=(fqdn.example.org)
 rsa_key_size=4096
 country="AT"
 state="VIE"
