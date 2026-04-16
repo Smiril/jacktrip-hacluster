@@ -20,6 +20,9 @@ services:
             - "61000-62000:61000-62000/udp"
         environment:
             - JACKTRIP_HA_HOST=REPLACE_WITH_FQDN
+            - JACKTRIP_HA_IP=192.168.3.100
+            - JACKTRIP_S1_IP=192.168.3.99
+            - JACKTRIP_S2_IP=192.168.3.98
         volumes:
             - ./ha-proxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
             - ./haproxy_certs/certs.pem:/haproxy/certs.pem:ro
