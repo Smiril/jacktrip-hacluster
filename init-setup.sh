@@ -5,7 +5,7 @@ if ! [ -x "$(command -v docker-compose)" ]; then
   exit 1
 fi
 
-domains=(example.org www.example.org)
+domains=(sub.example.org)
 rsa_key_size=4096
 data_path="./haproxy_certs"
 email="" # Adding a valid address is strongly recommended
@@ -19,10 +19,9 @@ if [ -d "$data_path" ]; then
 fi
 
 
-if [ ! -e "$data_path/../ha-proxy.cfg" ] || [ ! -e "$data_path/dhparams.pem" ]; then
+if [ ! -e "./ha-proxy.cfg" ]; then
   echo "### Downloading recommended TLS parameters ..."
-  curl -s https://raw.githubusercontent.com/Smiril/jacktrip-hacluster/blob/main/ha-proxy.cfg > "$data_path/../ha-proxy.cfg"
-  curl -s https://raw.githubusercontent.com/certbot/certbot/master/certbot/certbot/ssl-dhparams.pem > "$data_path/dhparams.pem"
+  curl -s https://raw.githubusercontent.com/Smiril/jacktrip-hacluster/blob/main/ha-proxy.cfg > "./ha-proxy.cfg"
   echo
 fi
 
