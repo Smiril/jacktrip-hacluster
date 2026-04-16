@@ -9,6 +9,7 @@ volumes:
 services:
     haproxy:
         image: haproxy:2.8-alpine
+        restart: unless-stopped
         ports:
             - "53:53"
             - "443:8000/tcp"
