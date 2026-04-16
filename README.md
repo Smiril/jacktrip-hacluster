@@ -15,3 +15,9 @@ docker-compose up -d
 ```
 bash ./init-setup.sh
 ```
+# To stop the container run
+
+```
+docker-compose down
+```
+
