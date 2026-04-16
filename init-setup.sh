@@ -7,6 +7,9 @@ fi
 
 domains=(sub.example.org)
 rsa_key_size=4096
+country="AT"
+state="VIE"
+city="VIE"
 data_path="./haproxy_certs"
 email="" # Adding a valid address is strongly recommended
 staging=0 # Set to 1 if you're testing your setup to avoid hitting request limits
@@ -28,7 +31,7 @@ if [ ! -e "./ha-proxy.cfg" ]; then
 fi
 
 echo "### Creating selfsigned certificate for $domains ..."
-./haproxy_certs/certs.sh $domains
+./haproxy_certs/certs.sh $contry $state $city $email $domains
 echo
 
 
