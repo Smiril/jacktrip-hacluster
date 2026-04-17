@@ -5,7 +5,7 @@ if ! [ -x "$(command -v docker-compose)" ]; then
   exit 1
 fi
 
-domains=(vm55034.cs.easyname.systems)
+domains=(sub.example.org)
 rsa_key_size=4096
 data_path="./haproxy_certs"
 staging=0 # Set to 1 if you're testing your setup to avoid hitting request limits
