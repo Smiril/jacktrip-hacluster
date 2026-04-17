@@ -14,7 +14,7 @@ docker-compose up -d
 # Or simply run
 
 ```
-bash ./init-setup.sh
+bash ./setup.sh
 ```
 # To stop the container run
 
