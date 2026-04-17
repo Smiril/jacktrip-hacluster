@@ -24,8 +24,12 @@ services:
             - JACKTRIP_HA_IP=REPLACE_WITH_HAPROXY_IP
             - JACKTRIP_S1_IP=REPLACE_WITH_STUDIO_1_FQDN
             - JACKTRIP_S2_IP=REPLACE_WITH_STUDIO_2_FQDN
+            - JACKTRIP_S3_IP=REPLACE_WITH_STUDIO_3_FQDN
+            - JACKTRIP_S4_IP=REPLACE_WITH_STUDIO_4_FQDN
             - JACKTRIP_DNS1_IP=1.1.1.1
             - JACKTRIP_DNS2_IP=9.9.9.9
+            - JACKTRIP_DNS3_IP=8.8.8.8
+            - JACKTRIP_DNS4_IP=8.8.4.4
         volumes:
             - ./ha-proxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
             - ./haproxy_certs/certs.pem:/haproxy/certs.pem:ro
