@@ -2,7 +2,15 @@
 ARGV=("$@")
 ARGC=("$#")
 rm -f key.pem && rm -f key.pem.old && rm -f dhparams.pem && rm -f cert.pem
-openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days `echo 365*4|bc -l` -subj "/C=$1/ST=$2/L=$3/O=$4/CN=$5"
-openssl rsa -in key.pem -out newkey.pem && mv key.pem key.pem.old && mv newkey.pem key.pem
+openssl genpkey -algorithm RSA -out key.pem
+openssl req -new -x509 -key key.pem -out cert.pem -days 365 
+openssl x509 -text -noout -in cert.pem
+openssl genrsa $1 > ca-key.pem
+openssl req -new -x509 -nodes -days 365 -key ca-key.pem  -out ca-cert.pem
+openssl req -newkey rsa:$1 -nodes -days 365 -keyout server-key.pem  -out server-req.pem
+openssl x509 -req -days 365 -set_serial 01  -in server-req.pem  -out server-cert.pem  -CA ca-cert.pem  -CAkey ca-key.pem
+openssl verify -CAfile ca-cert.pem ca-cert.pem server-cert.pem
 openssl dhparam -out dhparams.pem 2048
-cat key.pem cert.pem dhparams.pem > certs.pem
+cat server-cert.pem dhparams.pem > certs.pem
+
+exit 0
