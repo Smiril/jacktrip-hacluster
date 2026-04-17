@@ -4,7 +4,7 @@ how to docker a ha cluster for jacktrip servers
 
 # Setup
 ```
-bash ./haproxy_certs/certs.sh AT VIE VIE mail@example.org fqdn.example.org
+bash ./haproxy_certs/certs.sh 4096 365
 ```
 
 ```
