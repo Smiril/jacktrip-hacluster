@@ -11,6 +11,6 @@ openssl req -newkey rsa:$1 -nodes -days 365 -keyout server-key.pem  -out server-
 openssl x509 -req -days 365 -set_serial 01  -in server-req.pem  -out server-cert.pem  -CA ca-cert.pem  -CAkey ca-key.pem
 openssl verify -CAfile ca-cert.pem ca-cert.pem server-cert.pem
 openssl dhparam -out dhparams.pem 2048
-cat server-cert.pem dhparams.pem > certs.pem
+cat server-req.pem server-cert.pem dhparams.pem > certs.pem
 
 exit 0
