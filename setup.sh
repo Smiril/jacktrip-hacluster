@@ -5,7 +5,7 @@ if ! [ -x "$(command -v docker-compose)" ]; then
   exit 1
 fi
 
-domains=(vm55034.cs.easyname.systems)
+domains=(sub.example.org)
 rsa_key_size=4096
 date_size=365
 data_path="./haproxy_certs"
