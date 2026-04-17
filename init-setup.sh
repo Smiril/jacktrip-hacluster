@@ -7,6 +7,7 @@ fi
 
 domains=(sub.example.org)
 rsa_key_size=4096
+date_size=365
 data_path="./haproxy_certs"
 staging=0 # Set to 1 if you're testing your setup to avoid hitting request limits
 
@@ -29,7 +30,7 @@ fi
 
 echo "### Creating selfsigned certificate for $domains ..."
 cd $data_path
-./certs.sh $rsa_key_size
+./certs.sh $rsa_key_size $date_size
 cd ../
 echo
 
